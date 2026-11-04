@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <path d="M 30,50 Q 30,90 50,90 Q 70,90 70,50 Z" fill="#d3a77d"/>
+    <circle cx="50" cy="40" r="25" fill="#d3a77d"/>
+    <ellipse cx="25" cy="40" rx="10" ry="20" fill="#a07855" transform="rotate(-15 25 40)"/>
+    <ellipse cx="75" cy="40" rx="10" ry="20" fill="#a07855" transform="rotate(15 75 40)"/>
+    <!-- Sleeping Eyes -->
+    <path d="M 35,35 Q 40,38 45,35" stroke="#000" fill="transparent" stroke-width="2"/>
+    <path d="M 55,35 Q 60,38 65,35" stroke="#000" fill="transparent" stroke-width="2"/>
+    <circle cx="33" cy="42" r="3" fill="#ffb6c1" opacity="0.8"/>
+    <circle cx="67" cy="42" r="3" fill="#ffb6c1" opacity="0.8"/>
+    <ellipse cx="50" cy="42" rx="5" ry="3" fill="#000"/>
+    <ellipse cx="40" cy="85" rx="8" ry="6" fill="#f0d5b6"/>
+    <ellipse cx="60" cy="85" rx="8" ry="6" fill="#f0d5b6"/>
+</svg>

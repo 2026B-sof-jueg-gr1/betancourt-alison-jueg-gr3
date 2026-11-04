@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perrito - Mascota Virtual</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Pantalla de Inicio -->
+        <div id="start-screen" class="screen active">
+            <h1 class="title">Mi Perrito</h1>
+            <div class="puppy-illustration">
+                <img src="assets/puppy/puppy-base.svg" alt="Perrito">
+            </div>
+            <p class="subtitle">¡Tu nuevo mejor amigo te está esperando!</p>
+            <div class="buttons">
+                <button id="btn-start" class="btn primary">Comenzar</button>
+                <button id="btn-how-to" class="btn secondary">Cómo jugar</button>
+            </div>
+        </div>
+
+        <!-- Modal Nombre -->
+        <div id="name-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>¿Cómo quieres llamar a tu perrito?</h2>
+                <input type="text" id="pet-name-input" placeholder="Nombre..." maxlength="12">
+                <button id="btn-save-name" class="btn primary">¡Vamos a jugar!</button>
+            </div>
+        </div>
+
+        <!-- Juego Principal -->
+        <div id="game-container" class="hidden">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="stat">
+                    <span class="icon">❤️</span>
+                    <div class="bar-bg"><div id="bar-happiness" class="bar-fill pink"></div></div>
+                </div>
+                <div class="stat">
+                    <span class="icon">✨</span>
+                    <div class="bar-bg"><div id="bar-cleanliness" class="bar-fill blue"></div></div>
+                </div>
+                <div class="stat">
+                    <span class="icon">⚡</span>
+                    <div class="bar-bg"><div id="bar-energy" class="bar-fill yellow"></div></div>
+                </div>
+                <div class="day-counter">Día: <span id="day-num">1</span></div>
+            </div>
+
+            <div class="message-bubble hidden" id="puppy-message">¡Hola!</div>
+
+            <!-- Pantallas de Actividades -->
+            <div id="screen-room" class="game-screen active">
+                <div class="puppy-container">
+                    <img src="assets/puppy/puppy-base.svg" class="puppy-sprite" id="puppy-sprite-room" alt="Perrito">
+                    <div class="accessories-layer" id="acc-layer-room"></div>
+                </div>
+            </div>
+
+            <div id="screen-bath" class="game-screen hidden">
+                <div class="bath-tub">
+                    <div class="puppy-container">
+                        <img src="assets/puppy/puppy-base.svg" class="puppy-sprite" id="puppy-sprite-bath" alt="Perrito">
+                        <div id="bath-bubbles" class="hidden">🛁💦🫧</div>
+                    </div>
+                </div>
+                <div class="action-panel">
+                    <button id="btn-start-bath" class="btn primary">Comenzar baño</button>
+                    <button id="btn-sponge" class="btn action hidden">🧽 Usar esponja</button>
+                    <div id="bath-progress" class="hidden">
+                        <div class="bar-bg"><div id="bath-bar" class="bar-fill blue"></div></div>
+                    </div>
+                    <button id="btn-dry" class="btn secondary hidden">Secar a mi perrito</button>
+                </div>
+            </div>
+
+            <div id="screen-wardrobe" class="game-screen hidden">
+                <div class="wardrobe-split">
+                    <div class="puppy-display">
+                        <div class="puppy-container">
+                            <img src="assets/puppy/puppy-base.svg" class="puppy-sprite" id="puppy-sprite-wardrobe" alt="Perrito">
+                            <div class="accessories-layer" id="acc-layer-wardrobe"></div>
+                        </div>
+                    </div>
+                    <div class="catalog">
+                        <h3>Accesorios</h3>
+                        <div class="grid" id="accessories-grid">
+                            <!-- Populated by JS -->
+                        </div>
+                        <button id="btn-remove-clothes" class="btn secondary">Quitar todo</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="screen-play" class="game-screen hidden">
+                <div class="park-area">
+                    <div class="puppy-container" id="play-puppy">
+                        <img src="assets/puppy/puppy-base.svg" class="puppy-sprite" id="puppy-sprite-play" alt="Perrito">
+                        <div class="accessories-layer" id="acc-layer-play"></div>
+                    </div>
+                    <div id="ball" class="hidden">🎾</div>
+                </div>
+                <div class="action-panel">
+                    <button id="btn-throw-ball" class="btn primary">Lanzar pelota</button>
+                </div>
+            </div>
+
+            <div id="screen-sleep" class="game-screen hidden night-mode">
+                <div class="bedroom">
+                    <div class="moon">🌙</div>
+                    <div class="puppy-container sleep-anim">
+                        <img src="assets/puppy/puppy-sleep.svg" class="puppy-sprite" id="puppy-sprite-sleep" alt="Perrito Durmiendo">
+                        <div class="zzz hidden" id="zzz-anim">Zzz...</div>
+                    </div>
+                </div>
+                <div class="action-panel">
+                    <button id="btn-sleep" class="btn primary">Dormir</button>
+                    <button id="btn-wake" class="btn secondary hidden">Despertar</button>
+                </div>
+            </div>
+
+            <!-- Navbar -->
+            <nav class="bottom-nav">
+                <button class="nav-btn" data-target="screen-bath"><span>🛁</span><br>Bañar</button>
+                <button class="nav-btn" data-target="screen-wardrobe"><span>👕</span><br>Vestuario</button>
+                <button class="nav-btn active" data-target="screen-room"><span>🏠</span><br>Habitación</button>
+                <button class="nav-btn" data-target="screen-play"><span>🎾</span><br>Jugar</button>
+                <button class="nav-btn" data-target="screen-sleep"><span>💤</span><br>Dormir</button>
+            </nav>
+        </div>
+    </div>
+    
+    <script src="js/storage.js"></script>
+    <script src="js/puppy.js"></script>
+    <script src="js/bathroom.js"></script>
+    <script src="js/wardrobe.js"></script>
+    <script src="js/activities.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
