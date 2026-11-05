@@ -18,13 +18,13 @@ function initActivities() {
         ball.classList.remove('hidden');
         
         // Ball goes up and right
-        ball.style.bottom = '200px';
-        ball.style.left = '80%';
+        ball.style.bottom = '55%';
+        ball.style.left = '75%';
         
         setTimeout(() => {
             // Puppy follows
-            playPuppy.style.left = '80%';
-            playPuppy.style.bottom = '180px';
+            playPuppy.style.left = '75%';
+            playPuppy.style.bottom = '45%';
             
             setTimeout(() => {
                 // Ball and puppy return
